@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <form action = "{{ path("resize") }}" method = "POST">
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Wysokość ></span>
+    </div>
+    <div class="input-group-prepend">
+        <input type="range" class="custom-range"  min="30" max="400" id="formControlRange">
+    </div>
+    <div class="input-group-prepend">
+        <span class="input-group-text">Szerokość ></span>
+    </div>
+    <div class="input-group-prepend">
+        <input type="range" class="custom-range"  min="30" max="400" id="formControlRange">
+    </div>
+    <div class="input-group-prepend">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </form>
+
+{% endblock %}
+
+{% block stylesheets %}
+  <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+{% endblock %}
