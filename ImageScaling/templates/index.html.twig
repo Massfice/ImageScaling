@@ -2,29 +2,57 @@
 
 {% block body %}
 
-  <form action = "{{ path("resize") }}" method = "POST">
+  <form action = "{{ path("resize") }}" method = "POST" enctype="multipart/form-data" id ="form">
   <div class="input-group">
+  <div class="input-group-prepend">
+      <input type="file" class="form-control-file" name="file" accept="image/*" onchange="change()">
+  </div>
     <div class="input-group-prepend">
         <span class="input-group-text">Wysokość ></span>
     </div>
     <div class="input-group-prepend">
-        <input type="range" class="custom-range"  min="30" max="400" id="formControlRange">
+        <input type="range" class="custom-range"  min="30" max="400" name="height" onchange="change()" id="height">
     </div>
     <div class="input-group-prepend">
         <span class="input-group-text">Szerokość ></span>
     </div>
     <div class="input-group-prepend">
-        <input type="range" class="custom-range"  min="30" max="400" id="formControlRange">
+        <input type="range" class="custom-range"  min="30" max="400" name="width" onchange="change()" id="width">
     </div>
     <div class="input-group-prepend">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+    <div class="input-group-prepend">
+      <div id="sizes"></div>
+    </div>
+
   </div>
   </form>
+
+  <div>
+    {% if picture is defined %}
+      <img src = "{{ asset("pictures/picture.jpg") }}"></img>
+    {% endif %}
+  </div>
 
 {% endblock %}
 
 {% block stylesheets %}
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script src = "{{ asset("js/jquery.js") }}" type= "text/javascript"></script>
+
+<script type = "text/javascript">
+
+  function change() {
+    var width = $('#width').val();
+    var height = $('#height').val();
+    $('#sizes').html(width+' x '+height);
+  }
+</script>
 
 {% endblock %}

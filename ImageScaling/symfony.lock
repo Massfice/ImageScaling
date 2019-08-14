@@ -1,4 +1,7 @@
 {
+    "components/jquery": {
+        "version": "3.3.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -31,6 +34,12 @@
     },
     "doctrine/reflection": {
         "version": "v1.0.0"
+    },
+    "gumlet/php-image-resize": {
+        "version": "1.9.2"
+    },
+    "monolog/monolog": {
+        "version": "1.24.0"
     },
     "nikic/php-parser": {
         "version": "v4.2.3"
